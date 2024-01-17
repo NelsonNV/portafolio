@@ -1,0 +1,28 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCIE = [
+  {
+    date: "Actualmente...",
+    title: "Mantenimiento de marcha blanca - TPAP",
+    description:
+      "El proyecto TPAP (Toiec Proyect no se que). para el casptom y para el area de ingles se desarrollo una pagina donde estudiar ingles, la cual despues de su desarrollo le estamos dando mantenimiento, para que este en funcionamiento.",
+    link: "https://twitch.tv/midudev",
+  },
+  {
+    date: "Enero 2022",
+    title: "Plactica profesional Analista Programador computaiconal - Municipalidad de melipilla",
+    description:
+      "Ayude en los procesos y reparaciones de algunos equipos, en especial en el area de inventario de los equipos, en el cual desarrolle una herramienta con el nombre de 'DatosPC' para agilizar el proceso de inventario, ademas de ayudar en en la imprementacion del servidor para el servicio OsTicker",
+  },
+]
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>
