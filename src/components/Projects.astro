@@ -4,6 +4,10 @@ import NextJSIcon from "./icons/NextJS.astro"
 import TailwindIcon from "./icons/Tailwind.astro"
 import LinkButton from "./LinkButton.astro"
 import PythonIcon from "./icons/Python.astro"
+import JQUERYIcon from "./icons/Jquery.astro"
+import DjangoIcon from "./icons/Django.astro"
+import AstroIcon from "./icons/AstroIcon.astro"
+
 const TAGS = {
   NEXT: {
     name: "Next.js",
@@ -19,6 +23,21 @@ const TAGS = {
     name: "Python",
     class: "bg-[#003159] text-white",
     icon: PythonIcon
+  },
+  JQUERY:{
+    name: "Jquery",
+    class: "bg-[#003159] text-white",
+    icon: JQUERYIcon
+  },
+  DJANGO:{
+    name: "Django",
+    class: "bg-[#003159] text-white",
+    icon: DjangoIcon
+  },
+  ASTRO:{
+    name:"Astro",
+    class: "bg-[#003159] text-white",
+    icon: AstroIcon
   }
 }
 const PROJECTS = [
@@ -27,7 +46,7 @@ const PROJECTS = [
     description:
       "Programa hecho para solucionar un problema con stable difussion y es el guardar prompts, debido a no tener una forma de editarlo dentro del entorno web, desarrolle esta herramienta que permite guardarlos en scv y guardar editar tus mejores prompts.",
     github: "https://github.com/NelsonNV/promptManager",
-    image: "projects/promtmanager.png",
+    image: "projects/promtmanager.webp",
     tags: [TAGS.PYTHON],
   },
   {
@@ -35,9 +54,26 @@ const PROJECTS = [
     description:
       "Herramienta desarrollada para optener los datos del equipo tanto red como en componentes, desarrollado en inspiracion al programa creado para La municipalidad, buscando generar una estructura total mente distinta, siendo capas de generar un informe en formato markdown",
     link: "https://adventjs.dev",
-    image: "projects/ScanPC.png",
+    image: "projects/ScanPC.webp",
     github: "https://github.com/NelsonNV/ScanPC",
     tags: [TAGS.PYTHON],
+  },
+  {
+    title: "TPAP - Toeic Practice Advantage Program",
+    description:
+      "Proyecto elaborado con Django para resolver el problema del Duoc UC, De que los alumnos nos tenian donde practicar o enseñar para los examenes toiec y buscar mejorar su ingles, se desarrollo como proyecto de capston o titulacion, Con el jefe de ingles Rexon Basaure como cliente",
+    // link: "https://adventjs.dev",
+    image: "projects/TPAP.webp",
+    github: "https://github.com/NelsonNV/TPAP",
+    tags: [TAGS.PYTHON, TAGS.DJANGO, TAGS.JQUERY, ],
+  },
+  {
+    title: "IpInfo",
+    description:
+      "Una herramienta de búsqueda de IP que, al iniciar, no solo te muestra tu IP pública, sino que también te permite consultar y visualizar los datos asociados a cualquier dirección IP pública. Se desarrollo en astro para probar lo aprendido y a su vez actualizar un proyecto anterior mente abandonado",
+    image: "projects/IpInfo.webp",
+    github: "https://github.com/NelsonNV/IpInfo",
+    tags: [TAGS.ASTRO, TAGS.TAILWIND ],
   },
 ]
 ---
