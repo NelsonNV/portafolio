@@ -7,6 +7,7 @@ import PythonIcon from "./icons/Python.astro"
 import JQUERYIcon from "./icons/Jquery.astro"
 import DjangoIcon from "./icons/Django.astro"
 import AstroIcon from "./icons/AstroIcon.astro"
+import Carousel from './Carusel.astro';
 
 const TAGS = {
   NEXT: {
@@ -99,12 +100,16 @@ const PROJECTS = [
             </li>
           ))}
         </ul>
-        <img
-          loading="lazy"
-          class="rounded shadow-2xl shadow-white/10 aspect-video"
-          src={image}
-          alt={`Captura de pantalla del proyecto ${image}`}
-        />
+       {Array.isArray(image) ? (
+          <Carousel images={image} />
+        ) : (
+          <img
+            loading="lazy"
+            class="rounded shadow-2xl shadow-white/10 aspect-video"
+            src={image}
+            alt={`Captura de pantalla del proyecto ${image}`}
+          />
+        )}
         <footer class="flex gap-x-4 items-end justify-start mt-4">
           {github && (
             <LinkButton href={github}>
