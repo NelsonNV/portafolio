@@ -1,34 +1,57 @@
 ---
 interface Props {
-	images: array;
+images: Array<string>;
 }
 
-const { images } = Astro.props;
+const { images } = Astro.props as Props;
 ---
 
 <div class="carousel relative shadow-2xl rounded shadow-2xl shadow-white/10 aspect-video">
-	<div class="carousel-inner relative overflow-hidden w-full">
-        {images.map((image, index) => (
-            <Fragment key={image}>
-                <input class="carousel-open" type="radio" id={`carousel-${index + 1}`} name="carousel" aria-hidden="true" hidden checked={index === 0} />
-                <div class="carousel-item absolute opacity-0" style="height:50vh;">
-                    <div class="block h-full w-full text-white text-5xl text-center">
-                        <img src={image} alt={`Slide ${index + 1}`} />
-                    </div>
-                </div>
-                <label for={`carousel-${index === 0 ? images.length : index}`} class={`prev control-${index + 1} w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto`}>‹</label>
-                <label for={`carousel-${index + 2 > images.length ? 1 : index + 2}`} class={`next control-${index + 1} w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto`}>›</label>
-            </Fragment>
-        ))}
-        
-        <ol class="carousel-indicators">
-            {images.map((_, index) => (
-                <li class="inline-block mr-3" key={index}>
-                    <label for={`carousel-${index + 1}`} class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700">•</label>
-                </li>
-            ))}
-        </ol>
-    </div>
+  <div class="carousel-inner relative overflow-hidden w-full">
+    {images.map((_, index: number) => (
+      <Fragment key={index}>
+        <input
+          class="carousel-open"
+          type="radio"
+          id={`carousel-${index + 1}`}
+          name="carousel"
+          aria-hidden="true"
+          hidden
+          checked={index === 0}
+        />
+        <div class="carousel-item absolute opacity-0" style="height:50vh;">
+          <div class="block h-full w-full text-white text-5xl text-center">
+            <img src={_} alt={`Slide ${index + 1}`} />
+          </div>
+        </div>
+        <label
+          for={`carousel-${index === 0 ? images.length : index}`}
+          class={`prev control-${index + 1} w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 left-0 my-auto`}
+        >
+          ‹
+        </label>
+        <label
+          for={`carousel-${index + 2 > images.length ? 1 : index + 2}`}
+          class={`next control-${index + 1} w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-blue-700 leading-tight text-center z-10 inset-y-0 right-0 my-auto`}
+        >
+          ›
+        </label>
+      </Fragment>
+    ))}
+
+    <ol class="carousel-indicators">
+      {images.map((_, index: number) => (
+        <li class="inline-block mr-3" data-key={index}>
+          <label
+            for={`carousel-${index + 1}`}
+            class="carousel-bullet cursor-pointer block text-4xl text-white hover:text-blue-700"
+          >
+            •
+          </label>
+        </li>
+      ))}
+    </ol>
+  </div>
 </div>
 
 <style>
